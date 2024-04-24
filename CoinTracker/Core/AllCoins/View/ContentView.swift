@@ -12,7 +12,9 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Text("\(viewModel.coin): \(viewModel.price)")
+            ForEach(viewModel.coins) { coin in
+                Text(coin.name)
+            }
         }
         .padding()
     }
