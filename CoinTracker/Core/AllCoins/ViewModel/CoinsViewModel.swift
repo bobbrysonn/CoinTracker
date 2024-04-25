@@ -9,6 +9,7 @@ import Foundation
 
 class CoinsViewModel: ObservableObject {
     @Published var coins = [Coin]()
+    @Published var errorMessage: String?
     
     private let service = CoinDataService()
     
@@ -21,6 +22,20 @@ class CoinsViewModel: ObservableObject {
         service.fetchCoins { coinsFromService in
             DispatchQueue.main.async {
                 self.coins = coinsFromService
+            }
+        }
+    }
+    
+    // Fetch all coins
+    func fetchCoinsWithResult() {
+        service.fetchCoinsWithResult { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let coins):
+                    self?.coins = coins
+                case .failure(let error):
+                    self?.errorMessage = error.localizedDescription
+                }
             }
         }
     }
