@@ -14,9 +14,22 @@ class CoinsViewModel: ObservableObject {
     private let service = CoinDataService()
     
     init() {
-        fetchCoins()
+        Task { await fetchCoinsWithAsync() }
     }
 
+    // Fetch all coins
+    @MainActor func fetchCoinsWithAsync() async {
+        do {
+            self.coins = try await service.fetchCoinsWithAsync()
+        } catch let error {
+            if let error = error as? CoinAPIError {
+                self.errorMessage = error.customDescription
+            } else {
+                self.errorMessage = error.localizedDescription
+            }
+        }
+    }
+    
     // Fetch all coins
     func fetchCoins() {
         service.fetchCoins { coinsFromService in

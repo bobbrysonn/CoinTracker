@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D51FA162BE0228500C717C6 /* CoinDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51FA152BE0228500C717C6 /* CoinDetails.swift */; };
+		3D51FA1A2BE02B3C00C717C6 /* CoinDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51FA192BE02B3C00C717C6 /* CoinDetailsViewModel.swift */; };
+		3D51FA1C2BE02DA800C717C6 /* CoinDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51FA1B2BE02DA800C717C6 /* CoinDetailsView.swift */; };
 		3D9F9B702BD7810F007DDD59 /* CoinTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9F9B6F2BD7810F007DDD59 /* CoinTrackerApp.swift */; };
 		3D9F9B722BD7810F007DDD59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9F9B712BD7810F007DDD59 /* ContentView.swift */; };
 		3D9F9B742BD78110007DDD59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D9F9B732BD78110007DDD59 /* Assets.xcassets */; };
@@ -18,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D51FA152BE0228500C717C6 /* CoinDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetails.swift; sourceTree = "<group>"; };
+		3D51FA192BE02B3C00C717C6 /* CoinDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsViewModel.swift; sourceTree = "<group>"; };
+		3D51FA1B2BE02DA800C717C6 /* CoinDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsView.swift; sourceTree = "<group>"; };
 		3D9F9B6C2BD7810F007DDD59 /* CoinTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D9F9B6F2BD7810F007DDD59 /* CoinTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTrackerApp.swift; sourceTree = "<group>"; };
 		3D9F9B712BD7810F007DDD59 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -40,6 +46,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D51FA132BE0226E00C717C6 /* CoinDetails */ = {
+			isa = PBXGroup;
+			children = (
+				3D51FA172BE0228900C717C6 /* View */,
+				3D51FA182BE02B1D00C717C6 /* ViewModel */,
+				3D51FA142BE0227C00C717C6 /* Model */,
+			);
+			path = CoinDetails;
+			sourceTree = "<group>";
+		};
+		3D51FA142BE0227C00C717C6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3D51FA152BE0228500C717C6 /* CoinDetails.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3D51FA172BE0228900C717C6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3D51FA1B2BE02DA800C717C6 /* CoinDetailsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3D51FA182BE02B1D00C717C6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3D51FA192BE02B3C00C717C6 /* CoinDetailsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		3D9F9B632BD7810F007DDD59 = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +154,7 @@
 		3D9F9B812BD7819A007DDD59 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				3D51FA132BE0226E00C717C6 /* CoinDetails */,
 				3D9F9B7D2BD78136007DDD59 /* AllCoins */,
 			);
 			path = Core;
@@ -205,11 +246,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D51FA1A2BE02B3C00C717C6 /* CoinDetailsViewModel.swift in Sources */,
+				3D51FA162BE0228500C717C6 /* CoinDetails.swift in Sources */,
 				3DB8B3342BDAAC930020A9CA /* CoinAPIError.swift in Sources */,
 				3D9F9B872BD88D02007DDD59 /* CoinDataService.swift in Sources */,
 				3D9F9B722BD7810F007DDD59 /* ContentView.swift in Sources */,
 				3D9F9B842BD7845C007DDD59 /* CoinsViewModel.swift in Sources */,
 				3D9F9B892BD967C6007DDD59 /* Coin.swift in Sources */,
+				3D51FA1C2BE02DA800C717C6 /* CoinDetailsView.swift in Sources */,
 				3D9F9B702BD7810F007DDD59 /* CoinTrackerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

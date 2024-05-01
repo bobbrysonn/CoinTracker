@@ -1,6 +1,6 @@
 import Foundation
 
-struct Coin: Codable, Identifiable {
+struct Coin: Codable, Hashable, Identifiable {
     let id: String
     let symbol: String
     let name: String
