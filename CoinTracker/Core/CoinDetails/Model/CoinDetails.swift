@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct CoinDetails: Decodable {
+struct CoinDetails: Codable {
     let id: String
     let symbol: String
     let name: String
     let description: Description
 }
 
-struct Description: Decodable {
+struct Description: Codable {
     let text: String
     
     enum CodingKeys: String, CodingKey {

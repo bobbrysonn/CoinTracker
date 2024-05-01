@@ -15,48 +15,89 @@ class CoinDataService: HTTPDataDownloader {
     // API KEY
     private let key = "CG-zwRnUM8eRJTXCsWJdyrsfz6E"
     
+    private var baseURLComponents: URLComponents {
+        var components = URLComponents()
+        
+        /* Set everything up */
+        components.scheme = "https"
+        components.host = "api.coingecko.com"
+        components.path = "/api/v3/coins/"
+        
+        return components
+    }
+    
+    private var fetchCoinsURL: String? {
+        var components = baseURLComponents
+        components.path += "markets"
+        
+        /* Add the query items */
+        components.queryItems = [
+            .init(name: "vs_currency", value: "usd"),
+            .init(name: "order", value: "market_cap_desc"),
+            .init(name: "per_page", value: "100"),
+            .init(name: "page", value: "1"),
+            .init(name: "sparkline", value: "false"),
+            .init(name: "x_cg_demo_api_key", value: "\(self.key)")
+        ]
+        
+        return components.url?.absoluteString
+    }
+    
+    private func fetchCoinDetailsURL(coinID: String) -> String? {
+        var components = baseURLComponents
+        components.path += "\(coinID)"
+        
+        /* Add query items */
+        components.queryItems = [
+            .init(name: "localization", value: "true"),
+            .init(name: "tickers", value: "false"),
+            .init(name: "market_data", value: "false"),
+            .init(name: "community_data", value: "false"),
+            .init(name: "developer_data", value: "false"),
+            .init(name: "x_cg_demo_api_key", value: "\(self.key)")
+        ]
+        
+        return components.url?.absoluteString
+    }
+    
     /**
      Fetch coin details for a specific coin
      */
-    func fetchCoinDetails(coinID: String) async throws -> CoinDetails? {
-        // Url
-        let url = "https://api.coingecko.com/api/v3/coins/\(coinID)?localization=true&tickers=false&market_data=false&community_data=false&developer_data=false&x_cg_demo_api_key=\(self.key)"
+    func fetchCoinDetails(coinID: String) async throws -> CoinDetails {
+        /* Check if we have cached data */
+        if let cachedData = CoinDetailsCache.shared.get(forKey: coinID) {
+            print("DEBUG: Fetched data from cache")
+            return cachedData
+        }
         
-        return try await fetchData(as: CoinDetails.self, endpoint: url)
+        /* Get the url */
+        guard let url = fetchCoinDetailsURL(coinID: coinID) else {
+            throw CoinAPIError.requestFailed(description: "Invalid URL construction")
+        }
+        
+        /* Fetch the data */
+        let coinDetails = try await fetchData(as: CoinDetails.self, endpoint: url)
+        
+        /* Cache data */
+        CoinDetailsCache.shared.set(coinDetails, forKey: coinID)
+        print("DEBUG: Fetched data from API")
+        
+        /* Return data */
+        return coinDetails
     }
     
     func fetchCoinsWithAsync() async throws -> [Coin] {
         // Construct the URL
-        let urlString = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&x_cg_demo_api_key=\(self.key)"
-        
-        guard let url = URL(string: urlString) else { return [] }
-        
-        // Fetch URL
-        guard let (data, response) = try? await URLSession.shared.data(from: url) else {
-            print("DEBUG: Error executing URLSession. Possibly non-existent hostname")
-            throw CoinAPIError.datataskExecutionFailed(localizedDescription: "Error executing URLSession. Possibly non-existent hostname")
+        guard let url = fetchCoinsURL else {
+            throw CoinAPIError.requestFailed(description: "Invalid URL construction")
         }
         
-        // Check that we got a valid response
-        guard let httpResp = response as? HTTPURLResponse else {
-            print("DEBUG: Did not get valid HTTP Response from URLSession")
-            throw CoinAPIError.requestFailed(description: "Did not get valid HTTP Response from URLSession")
-        }
-        
-        // Check we got valid status code
-        guard 200...299 ~= httpResp.statusCode else {
-            throw CoinAPIError.invalidStatusCode(statusCode: httpResp.statusCode)
-        }
-        
-        do {
-            let coins = try JSONDecoder().decode([Coin].self, from: data)
-            return coins
-        } catch {
-            print("DEBUG: \(error.localizedDescription)")
-            throw error as? CoinAPIError ?? .jsonParsingFailed
-        }
+        return try await fetchData(as: [Coin].self, endpoint: url)
     }
 }
+
+
+
 
 /**
  Fetch data implementation
