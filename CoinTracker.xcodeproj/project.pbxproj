@@ -19,6 +19,7 @@
 		3D9F9B892BD967C6007DDD59 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9F9B882BD967C6007DDD59 /* Coin.swift */; };
 		3DB8B3342BDAAC930020A9CA /* CoinAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8B3332BDAAC930020A9CA /* CoinAPIError.swift */; };
 		3DC2CCD72BE2DC6500DE021F /* CoinDetailsCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC2CCD62BE2DC6500DE021F /* CoinDetailsCache.swift */; };
+		3DC2CCD92BE2E44B00DE021F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3DC2CCD82BE2E44B00DE021F /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		3D9F9B882BD967C6007DDD59 /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		3DB8B3332BDAAC930020A9CA /* CoinAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinAPIError.swift; sourceTree = "<group>"; };
 		3DC2CCD62BE2DC6500DE021F /* CoinDetailsCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsCache.swift; sourceTree = "<group>"; };
+		3DC2CCD82BE2E44B00DE021F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 		3D9F9B632BD7810F007DDD59 = {
 			isa = PBXGroup;
 			children = (
+				3DC2CCD82BE2E44B00DE021F /* README.md */,
 				3D9F9B6E2BD7810F007DDD59 /* CoinTracker */,
 				3D9F9B6D2BD7810F007DDD59 /* Products */,
 			);
@@ -245,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DC2CCD92BE2E44B00DE021F /* README.md in Resources */,
 				3D9F9B772BD78110007DDD59 /* Preview Assets.xcassets in Resources */,
 				3D9F9B742BD78110007DDD59 /* Assets.xcassets in Resources */,
 			);
