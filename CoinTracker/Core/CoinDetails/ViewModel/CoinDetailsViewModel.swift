@@ -11,12 +11,15 @@ class CoinDetailsViewModel: ObservableObject {
     @Published var details: CoinDetails?
     @Published var errorMessage: String?
     
-    private let service = CoinDataService()
+    private let service: CoinServiceProtocol
     private let coinID: String
     
-    init(coinID: String) {
+    init(coinID: String, service: CoinServiceProtocol) {
         // Initialize the coinID
         self.coinID = coinID
+        
+        /* Initialize service injected from CoinDetailsView <- ContentView <- CoinTrackerApp */
+        self.service = service
     }
 
     // Fetch all coins

@@ -10,8 +10,8 @@ import SwiftUI
 struct CoinDetailsView: View {
     @ObservedObject var viewModel: CoinDetailsViewModel
     
-    init(coinID: String) {
-        self.viewModel = CoinDetailsViewModel(coinID: coinID)
+    init(coinID: String, service: CoinDataService) {
+        self.viewModel = CoinDetailsViewModel(coinID: coinID, service: service)
     }
     
     var body: some View {
@@ -40,6 +40,6 @@ struct CoinDetailsView: View {
 }
 
 #Preview {
-    ContentView()
+    ContentView(service: CoinDataService())
 }
 

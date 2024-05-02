@@ -11,7 +11,13 @@ protocol HTTPDataDownloader {
     func fetchData<T: Decodable>(as type: T.Type, endpoint: String) async throws -> T
 }
 
-class CoinDataService: HTTPDataDownloader {
+protocol CoinServiceProtocol {
+    func fetchCoinsWithAsync() async throws -> [Coin]
+    func fetchCoinDetails(coinID: String) async throws -> CoinDetails?
+    
+}
+
+class CoinDataService: CoinServiceProtocol, HTTPDataDownloader {
     // API KEY
     private let key = "CG-zwRnUM8eRJTXCsWJdyrsfz6E"
     
@@ -63,10 +69,9 @@ class CoinDataService: HTTPDataDownloader {
     /**
      Fetch coin details for a specific coin
      */
-    func fetchCoinDetails(coinID: String) async throws -> CoinDetails {
+    func fetchCoinDetails(coinID: String) async throws -> CoinDetails? {
         /* Check if we have cached data */
         if let cachedData = CoinDetailsCache.shared.get(forKey: coinID) {
-            print("DEBUG: Fetched data from cache")
             return cachedData
         }
         
@@ -80,7 +85,6 @@ class CoinDataService: HTTPDataDownloader {
         
         /* Cache data */
         CoinDetailsCache.shared.set(coinDetails, forKey: coinID)
-        print("DEBUG: Fetched data from API")
         
         /* Return data */
         return coinDetails
