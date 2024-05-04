@@ -10,6 +10,8 @@
 		3D51FA162BE0228500C717C6 /* CoinDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51FA152BE0228500C717C6 /* CoinDetails.swift */; };
 		3D51FA1A2BE02B3C00C717C6 /* CoinDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51FA192BE02B3C00C717C6 /* CoinDetailsViewModel.swift */; };
 		3D51FA1C2BE02DA800C717C6 /* CoinDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51FA1B2BE02DA800C717C6 /* CoinDetailsView.swift */; };
+		3D80FB9E2BE46F5C00A0673D /* CoinTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D80FB9D2BE46F5C00A0673D /* CoinTrackerTests.swift */; };
+		3D80FBA72BE471C300A0673D /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D80FBA62BE471C300A0673D /* TestData.swift */; };
 		3D9F9B702BD7810F007DDD59 /* CoinTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9F9B6F2BD7810F007DDD59 /* CoinTrackerApp.swift */; };
 		3D9F9B722BD7810F007DDD59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9F9B712BD7810F007DDD59 /* ContentView.swift */; };
 		3D9F9B742BD78110007DDD59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D9F9B732BD78110007DDD59 /* Assets.xcassets */; };
@@ -22,10 +24,23 @@
 		3DC2CCD92BE2E44B00DE021F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3DC2CCD82BE2E44B00DE021F /* README.md */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3D80FB9F2BE46F5C00A0673D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D9F9B642BD7810F007DDD59 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3D9F9B6B2BD7810F007DDD59;
+			remoteInfo = CoinTracker;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		3D51FA152BE0228500C717C6 /* CoinDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetails.swift; sourceTree = "<group>"; };
 		3D51FA192BE02B3C00C717C6 /* CoinDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsViewModel.swift; sourceTree = "<group>"; };
 		3D51FA1B2BE02DA800C717C6 /* CoinDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsView.swift; sourceTree = "<group>"; };
+		3D80FB9B2BE46F5B00A0673D /* CoinTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoinTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D80FB9D2BE46F5C00A0673D /* CoinTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTrackerTests.swift; sourceTree = "<group>"; };
+		3D80FBA62BE471C300A0673D /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		3D9F9B6C2BD7810F007DDD59 /* CoinTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D9F9B6F2BD7810F007DDD59 /* CoinTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTrackerApp.swift; sourceTree = "<group>"; };
 		3D9F9B712BD7810F007DDD59 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -40,6 +55,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3D80FB982BE46F5B00A0673D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3D9F9B692BD7810F007DDD59 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -85,11 +107,21 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		3D80FB9C2BE46F5C00A0673D /* CoinTrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				3D80FB9D2BE46F5C00A0673D /* CoinTrackerTests.swift */,
+				3D80FBA62BE471C300A0673D /* TestData.swift */,
+			);
+			path = CoinTrackerTests;
+			sourceTree = "<group>";
+		};
 		3D9F9B632BD7810F007DDD59 = {
 			isa = PBXGroup;
 			children = (
 				3DC2CCD82BE2E44B00DE021F /* README.md */,
 				3D9F9B6E2BD7810F007DDD59 /* CoinTracker */,
+				3D80FB9C2BE46F5C00A0673D /* CoinTrackerTests */,
 				3D9F9B6D2BD7810F007DDD59 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				3D9F9B6C2BD7810F007DDD59 /* CoinTracker.app */,
+				3D80FB9B2BE46F5B00A0673D /* CoinTrackerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -193,6 +226,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3D80FB9A2BE46F5B00A0673D /* CoinTrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D80FBA32BE46F5C00A0673D /* Build configuration list for PBXNativeTarget "CoinTrackerTests" */;
+			buildPhases = (
+				3D80FB972BE46F5B00A0673D /* Sources */,
+				3D80FB982BE46F5B00A0673D /* Frameworks */,
+				3D80FB992BE46F5B00A0673D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3D80FBA02BE46F5C00A0673D /* PBXTargetDependency */,
+			);
+			name = CoinTrackerTests;
+			productName = CoinTrackerTests;
+			productReference = 3D80FB9B2BE46F5B00A0673D /* CoinTrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		3D9F9B6B2BD7810F007DDD59 /* CoinTracker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3D9F9B7A2BD78110007DDD59 /* Build configuration list for PBXNativeTarget "CoinTracker" */;
@@ -220,6 +271,10 @@
 				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
+					3D80FB9A2BE46F5B00A0673D = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 3D9F9B6B2BD7810F007DDD59;
+					};
 					3D9F9B6B2BD7810F007DDD59 = {
 						CreatedOnToolsVersion = 15.3;
 					};
@@ -239,11 +294,19 @@
 			projectRoot = "";
 			targets = (
 				3D9F9B6B2BD7810F007DDD59 /* CoinTracker */,
+				3D80FB9A2BE46F5B00A0673D /* CoinTrackerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3D80FB992BE46F5B00A0673D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3D9F9B6A2BD7810F007DDD59 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -257,6 +320,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3D80FB972BE46F5B00A0673D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D80FB9E2BE46F5C00A0673D /* CoinTrackerTests.swift in Sources */,
+				3D80FBA72BE471C300A0673D /* TestData.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3D9F9B682BD7810F007DDD59 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -276,7 +348,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		3D80FBA02BE46F5C00A0673D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3D9F9B6B2BD7810F007DDD59 /* CoinTracker */;
+			targetProxy = 3D80FB9F2BE46F5C00A0673D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		3D80FBA12BE46F5C00A0673D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2T49RF56HJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bobbrysonn.CoinTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoinTracker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CoinTracker";
+			};
+			name = Debug;
+		};
+		3D80FBA22BE46F5C00A0673D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2T49RF56HJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bobbrysonn.CoinTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoinTracker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CoinTracker";
+			};
+			name = Release;
+		};
 		3D9F9B782BD78110007DDD59 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -457,6 +573,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3D80FBA32BE46F5C00A0673D /* Build configuration list for PBXNativeTarget "CoinTrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D80FBA12BE46F5C00A0673D /* Debug */,
+				3D80FBA22BE46F5C00A0673D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3D9F9B672BD7810F007DDD59 /* Build configuration list for PBXProject "CoinTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
